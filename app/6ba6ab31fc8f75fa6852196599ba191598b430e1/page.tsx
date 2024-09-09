@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from 'react';
-import { PhotoIcon } from '@heroicons/react/24/solid';
 
 interface Course {
   course_code: string;
@@ -34,18 +33,10 @@ export default function Page() {
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type } = e.target as HTMLInputElement;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
-
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, files } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: files ? files[0] : null,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
     }));
   };
 
@@ -88,7 +79,7 @@ export default function Page() {
             <div className="border-b border-gray-900/10 pb-12">
               <h2 className="text-base font-semibold leading-7 text-gray-900">Générateur de DAE</h2>
               <p className="mt-1 text-sm leading-6 text-gray-600">
-                Cet outil est réservé à un usage exclusif des membres de l'association BDE Efrei Campus Paris.
+                Cet outil est réservé à un usage exclusif des membres de l&apos;association BDE Efrei Campus Paris.
               </p>
             </div>
 
@@ -179,7 +170,7 @@ export default function Page() {
                 {/* Absence Day */}
                 <div className="sm:col-span-3">
                   <label className="block text-sm font-medium leading-6 text-gray-900">
-                    Jour d'absence
+                    Jour d&apos;absence
                   </label>
                   <div className="mt-2">
                     <input
@@ -194,7 +185,7 @@ export default function Page() {
                 {/* Reason */}
                 <div className="sm:col-span-3">
                   <label className="block text-sm font-medium leading-6 text-gray-900">
-                    Raison de l'absence (mission BDE)
+                    Raison de l&apos;absence (mission BDE)
                   </label>
                   <div className="mt-2">
                     <input
