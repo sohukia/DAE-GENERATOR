@@ -39,3 +39,9 @@ pnpm dev
 ```
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser to access the generator.
+
+
+## Report issue
+
+Reach the _Pole Technique_ of the current BDE at the following address : [technique@bde-efrei.fr](mailto:technique@bde-efrei.fr)
+Or contact them directly in the appropriate channel on Discord.
