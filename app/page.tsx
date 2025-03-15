@@ -67,39 +67,29 @@ export default function Page() {
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `document.docx`;
+    link.download = `${formData.absence_day}_DAE_${formData.full_name}.docx`;
     document.body.appendChild(link);
     link.click();
     link.remove();
   };
 
   return (
-      <div className="size-full bg-[url('/stars_pattern.png')] bg-repeat">
+      <div className="size-full">
         <div className="container px-12 sm:mx-auto py-12 space-y-12">
           <form onSubmit={handleSubmit}>
             <div className="space-y-12">
               {/* Header */}
               <div className="grid sm:grid-cols-7 border-b border-gray-100/10 pb-12">
                 <div className="sm:col-span-6 space-y-2">
-                  <h1 className="text-2xl font-semibold leading-8 text-gray-100">BDE Efrei Campus Paris</h1>
-                  <p className="text-sm leading-6 font-semibold text-gray-300">Association loi 1901</p>
-                  <h2 className="text-base font-semibold leading-7 text-gray-100">Générateur de DAE {dateNow}</h2>
-                  <p className="mt-1 text-sm leading-6 font-semibold text-gray-300">
-                    Cet outil est réservé à un usage exclusif des membres de l&apos;association BDE Efrei Campus Paris.
-                  </p>
+                  <h1 className="text-2xl font-semibold leading-8 text-brown-900">Générateur de Déclaration d'Absence Excusée</h1>
                 </div>
-                <img
-                    src="/logo_dream.png"
-                    alt="Logo Dream"
-                    className="sm:col-span-1 w-40"
-                />
               </div>
 
               {/* Start filling information */}
               <div className="border-b border-gray-100/10 pb-12">
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-7">
                   <div className="sm:col-span-3">
-                    <label htmlFor="full-name" className="block text-sm font-bold leading-6 text-gray-100">
+                    <label htmlFor="full-name" className="block text-sm font-bold leading-6 text-brown-900">
                       Nom complet
                     </label>
                     <div className="mt-2">
@@ -108,7 +98,7 @@ export default function Page() {
                              value={formData.full_name}
                              onChange={handleChange}
                              autoComplete="given-name"
-                             className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 text-black focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                             className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-brown-300 text-brown-900 focus:ring-2 focus:ring-inset focus:ring-brown-600 sm:text-sm sm:leading-6"
                              placeholder={'John Doe'}
                              required/>
                     </div>
@@ -118,7 +108,7 @@ export default function Page() {
 
                   {/* Promo Year */}
                   <div className="sm:col-span-1">
-                    <label htmlFor="promo_year" className="block text-sm font-bold leading-6 text-gray-100">
+                    <label htmlFor="promo_year" className="block text-sm font-bold leading-6 text-brown-900">
                       Promo
                     </label>
                     <div className="mt-2">
@@ -129,13 +119,13 @@ export default function Page() {
                           min={new Date().getFullYear() - 5}
                           max={new Date().getFullYear() + 5}
                           onChange={handleChange}
-                          className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 text-black focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"/>
+                          className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-brown-300 text-brown-900 focus:ring-2 focus:ring-inset focus:ring-brown-600 sm:text-sm sm:leading-6"/>
                     </div>
                   </div>
 
                   {/* Apprenticeship */}
                   <div className="sm:col-span-2">
-                    <label className="block text-sm leading-6 text-gray-100 font-bold">
+                    <label className="block text-sm leading-6 text-brown-900 font-bold">
                       En apprentissage ?
                     </label>
                     <div className="mt-2">
@@ -144,12 +134,12 @@ export default function Page() {
                           name="apprenticeship"
                           checked={formData.apprenticeship}
                           onChange={handleChange}
-                          className="h-4 w-4 rounded border-gray-300 text-sky-500 focus:ring-sky-500"/>
+                          className="h-4 w-4 rounded border-brown-300 text-brown-500 focus:ring-brown-500"/>
                     </div>
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label className="block text-sm leading-6 text-gray-100 font-bold">
+                    <label className="block text-sm leading-6 text-brown-900 font-bold">
                       Majeure
                     </label>
                     <div className="mt-2">
@@ -158,14 +148,14 @@ export default function Page() {
                           name="major"
                           value={formData.major}
                           onChange={handleChange}
-                          className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-brown-900 shadow-sm ring-1 ring-inset ring-brown-300 focus:ring-2 focus:ring-inset focus:ring-brown-600 sm:max-w-xs sm:text-sm sm:leading-6"
                           placeholder={"Laisser vide si cycle prépa"}/>
                     </div>
                   </div>
 
                   {/* TD Group */}
                   <div className="sm:col-span-2">
-                    <label className="block text-sm leading-6 text-gray-100 font-bold">
+                    <label className="block text-sm leading-6 text-brown-900 font-bold">
                       Groupe TD
                     </label>
                     <div className="mt-2">
@@ -174,14 +164,14 @@ export default function Page() {
                           name="td_group"
                           value={formData.td_group}
                           onChange={handleChange}
-                          className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-brown-900 shadow-sm ring-1 ring-inset ring-brown-300 focus:ring-2 focus:ring-inset focus:ring-brown-600 sm:max-w-xs sm:text-sm sm:leading-6"
                           placeholder={"int-3"}/>
                     </div>
                   </div>
 
                   {/* Absence Day */}
                   <div className="sm:col-span-3">
-                    <label className="block text-sm leading-6 text-gray-100 font-bold">
+                    <label className="block text-sm leading-6 text-brown-900 font-bold">
                       Jour d&apos;absence
                     </label>
                     <div className="mt-2">
@@ -190,13 +180,14 @@ export default function Page() {
                           name="absence_day"
                           value={formData.absence_day}
                           onChange={handleChange}
-                          className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6"/>
+                          placeholder={dateNow}
+                          className="block w-full rounded-md border-0 py-1.5 text-brown-900 shadow-sm ring-1 ring-inset ring-brown-300 focus:ring-2 focus:ring-inset focus:ring-brown-600 sm:max-w-xs sm:text-sm sm:leading-6"/>
                     </div>
                   </div>
 
                   {/* Reason */}
                   <div className="sm:col-span-3">
-                    <label className="block text-sm leading-6 text-gray-100 font-bold">
+                    <label className="block text-sm leading-6 text-brown-900 font-bold">
                       Raison de l&apos;absence (mission BDE)
                     </label>
                     <div className="mt-2">
@@ -205,7 +196,7 @@ export default function Page() {
                           name="reason"
                           value={formData.reason}
                           onChange={handleChange}
-                          className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-brown-900 shadow-sm ring-1 ring-inset ring-brown-300 focus:ring-2 focus:ring-inset focus:ring-brown-600 sm:max-w-xs sm:text-sm sm:leading-6"
                           placeholder={"Description de la mission"}/>
                     </div>
                   </div>
@@ -214,11 +205,11 @@ export default function Page() {
 
                   {/* Courses */}
                   <div className="sm:col-span-7 border-solid border-2 rounded-md px-2 pb-5">
-                    <ul role="list" className="divide-y divide-gray-100">
+                    <ul role="list" className="divide-y divide-brown-100">
                       {formData.courses.map((course, index) => (
                           <li key={index} className="justify-between gap-x-6 py-5 grid grid-cols-1 sm:grid-cols-7">
                             <div className="sm:col-span-2">
-                              <label className="block text-sm leading-6 text-gray-100 font-bold">
+                              <label className="block text-sm leading-6 text-brown-900 font-bold">
                                 Code du cours
                               </label>
 
@@ -231,13 +222,13 @@ export default function Page() {
                                     updatedCourses[index].course_code = e.target.value;
                                     setFormData({...formData, courses: updatedCourses});
                                   }}
-                                  className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                  className="block w-full rounded-md border-0 py-1.5 text-brown-900 shadow-sm ring-1 ring-inset ring-brown-300 focus:ring-2 focus:ring-inset focus:ring-brown-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                   placeholder={"SM101I"}/>
                             </div>
 
 
                             <div className="sm:col-span-2">
-                              <label className="block text-sm leading-6 text-gray-100 font-bold">
+                              <label className="block text-sm leading-6 text-brown-900 font-bold">
                                 Nom du cours
                               </label>
                               <input
@@ -249,12 +240,12 @@ export default function Page() {
                                     updatedCourses[index].natural_name = e.target.value;
                                     setFormData({...formData, courses: updatedCourses});
                                   }}
-                                  className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                  className="block w-full rounded-md border-0 py-1.5 text-brown-900 shadow-sm ring-1 ring-inset ring-brown-300 focus:ring-2 focus:ring-inset focus:ring-brown-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                   placeholder={"Algèbre générale"}/>
                             </div>
 
                             <div className="sm:col-span-2">
-                              <label className="block text-sm leading-6 text-gray-100 font-bold">
+                              <label className="block text-sm leading-6 text-brown-900 font-bold">
                                 Horaire
                               </label>
                               <input
@@ -266,11 +257,11 @@ export default function Page() {
                                     updatedCourses[index].time = e.target.value;
                                     setFormData({...formData, courses: updatedCourses});
                                   }}
-                                  className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                  className="block w-full rounded-md border-0 py-1.5 text-brown-900 shadow-sm ring-1 ring-inset ring-brown-300 focus:ring-2 focus:ring-inset focus:ring-brown-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                   placeholder={"de 8h à 10h"}/>
                             </div>
                             <div className="sm:col-span-1">
-                              <label className="block text-sm leading-6 text-gray-100 font-bold">
+                              <label className="block text-sm leading-6 text-brown-900 font-bold">
                                 Évaluation
                               </label>
                               <input
@@ -282,7 +273,7 @@ export default function Page() {
                                     updatedCourses[index].evaluation = e.target.checked;
                                     setFormData({...formData, courses: updatedCourses});
                                   }}
-                                  className="h-4 w-4 rounded border-gray-300 text-sky-500 focus:ring-sky-500"/>
+                                  className="h-4 w-4 rounded border-brown-300 text-brown-500 focus:ring-brown-500"/>
                             </div>
                           </li>
                       ))}
@@ -291,14 +282,14 @@ export default function Page() {
                         type="button"
                         onClick={handleAddCourse}
                         disabled={formData.courses.length >= 5}
-                        className="inline-flex items-center rounded-md bg-sky-50 disabled:bg-gray-50 px-2 py-1 text-xs font-medium text-sky-700 disabled:text-gray-300 ring-1 ring-inset ring-sky-600/20 disabled:ring-gray-500/10">
+                        className="inline-flex items-center rounded-md bg-brown-50 disabled:bg-gray-50 px-2 py-1 text-xs font-medium text-brown-700 disabled:text-gray-300 ring-1 ring-inset ring-brown-600/20 disabled:ring-gray-500/10">
                       Add Course
                     </button>
                   </div>
                   {/* You can add similar file inputs for other signatures as needed */}
                   <div className="col-span-full">
                     <button type="submit"
-                            className='inline-flex items-center rounded-md bg-sky-50 px-2 py-1 text-m font-medium text-sky-700 ring-1 ring-inset ring-sky-600/20'>
+                            className='inline-flex items-center rounded-md bg-brown-50 px-2 py-1 text-m font-medium text-brown-700 ring-1 ring-inset ring-brown-600/20'>
                       Générer la DAE
                     </button>
                   </div>
