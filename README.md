@@ -2,20 +2,29 @@
 
 ## Installation
 
-Ensure you are part of the organization Bureau-des-Eleves-EFREI (that is, you can access this file already) and you have [Nodejs](https://nodejs.org/en) isntalled.
+Ensure you have [Nodejs](https://nodejs.org/en) installed.
+
+### Use the script from this repository
+
+```bash	
+wget -O - https://raw.githubusercontent.com/sohukia/DAE-GENERATOR/main/install.sh | bash
+``` 
+
+### ... or clone the repository
+
 Open a terminal and copy-paste this command:
 - Use `https`:
 ```bash
-git clone https://github.com/Bureau-des-Eleves-EFREI/dae_generator.git DAE_GENERATOR
+    git clone https://github.com/sohukia/DAE-GENERATOR.git DAE-GENERATOR
 ```
 - Use `ssh`:
 ```bash
-git clone git@github.com:Bureau-des-Eleves-EFREI/dae_generator.git DAE_GENERATOR
+git clone git@github.com:sohukia/DAE-GENERATOR.git DAE-GENERATOR
 ```
 
 Once you have downloaded the project, you can now move in the directory and install npm dependencies
 ```bash
-cd DAE_GENERATOR
+cd DAE-GENERATOR
 ```
 Then
 ```bash
@@ -39,9 +48,3 @@ pnpm dev
 ```
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser to access the generator.
-
-
-## Report issue
-
-Reach the _Pole Technique_ of the current BDE at the following address : [technique@bde-efrei.fr](mailto:technique@bde-efrei.fr)
-Or contact them directly in the appropriate channel on Discord.
